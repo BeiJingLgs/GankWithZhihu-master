@@ -1,0 +1,39 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+
+
+
+    defaultConfig {
+        applicationId "cfcc.com.appimg"
+        minSdkVersion 21
+//        minSdkVersion声明了应用可以运行的最小的api level，如果系统的api level小于在minSdkVersion中声明的值，应用将不能在该系统上面运行。
+//        在没有声明minSdkVersion时，他的默认值为1表示可以兼容所有版本的系统。
+        targetSdkVersion 26
+//        android:targetSdkVersion="17",targetSdkVersion属性会告诉系统应用是在api level为17的系统上进行的测试，应用不允许有向上兼容的行为。
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}
